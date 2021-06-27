@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        if (args.length != 1) {
-            System.out.println("Insert exactly one filepath.");
+
+        if (!checkarrlength(args))
             return;
-        }
+
         Path source = Paths.get(args[0]);
         if (!Files.exists(source)) {
             System.out.println("File does not exist.");
@@ -30,5 +30,18 @@ public class Main {
         Path target = Paths.get(source_arr[0] + strDate + "." + source_arr[1]);
 
         Files.copy(source, target);
+    }
+
+    public String print()
+    {
+        return "Hello World";
+    }
+
+    public static boolean checkarrlength (String [] args) {
+        if (args.length != 1) {
+            System.out.println("Insert exactly one filepath.");
+            return false;
+        }
+        return true;
     }
 }
